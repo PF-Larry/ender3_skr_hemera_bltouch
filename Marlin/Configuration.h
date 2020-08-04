@@ -20,7 +20,7 @@
  *
  */
 #pragma once
-
+//comment
 #define CONFIG_EXAMPLES_DIR "Creality/Ender-3/BigTreeTech SKR Mini E3 2.0"
 
 /**
