@@ -94,7 +94,7 @@
 #define HEATER_BED_PIN                      PC9   // "HB"
 
 #ifdef SKR_MINI_E3_V2
-  #define FAN_PIN                           PC6
+  #define FAN_PIN                           PC7 // changed from PC6 to PC7 per https://www.reddit.com/r/ender3/comments/hhny5w/skr_mini_e3_v20_on_ender_3_pro_fan_issue/ 
 #else
   #define FAN_PIN                           PA8   // "FAN0"
 #endif

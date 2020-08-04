@@ -41,7 +41,7 @@
 
 #define PS_ON_PIN                          PC13  // Power Supply Control
 
-#define FAN1_PIN                           PC7
+#define FAN1_PIN                           PC6 // change to PC6 per https://www.reddit.com/r/ender3/comments/hhny5w/skr_mini_e3_v20_on_ender_3_pro_fan_issue/
 
 #ifndef CONTROLLER_FAN_PIN
   #define CONTROLLER_FAN_PIN               FAN1_PIN
