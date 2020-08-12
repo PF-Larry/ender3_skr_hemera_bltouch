@@ -749,7 +749,7 @@
  * Override with M203
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 500, 500, 20, 120 }
+#define DEFAULT_MAX_FEEDRATE          { 500, 500, 20, 40 }
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -762,7 +762,7 @@
  * Override with M201
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_ACCELERATION      { 500, 500, 100, 8000 }
+#define DEFAULT_MAX_ACCELERATION      { 500, 500, 100, 5000 }
 
 //#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
@@ -845,7 +845,7 @@
 //#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
 
 // Force the use of the probe for Z-axis homing
-//#define USE_PROBE_FOR_Z_HOMING
+#define USE_PROBE_FOR_Z_HOMING //pf-larry 8-5-2020 Setting this in an attempt to address issue here https://github.com/MarlinFirmware/Marlin/issues/15731
 
 /**
  * Z_MIN_PROBE_PIN
@@ -989,11 +989,11 @@
  *     O-- FRONT --+
  */
 //#define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }
-//#define NOZZLE_TO_PROBE_OFFSET { 64, 0, -1.0  0 } //# using https://www.myminifactory.com/object/3d-print-ender-3-compact-hemera-mount-plate-with-bltouch-110476
-#define NOZZLE_TO_PROBE_OFFSET { +57.552, -10.589, -2.6 } //using https://www.thingiverse.com/thing:4069650
+#define NOZZLE_TO_PROBE_OFFSET { 64, 0, -1.0 } //# using https://www.myminifactory.com/object/3d-print-ender-3-compact-hemera-mount-plate-with-bltouch-110476
+//#define NOZZLE_TO_PROBE_OFFSET { +57.552, -10.589, -2.6 } //using https://www.thingiverse.com/thing:4069650
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define PROBING_MARGIN 10
+#define PROBING_MARGIN 40  // increasing to ensure that the probe doesn't collide with a clip.
 
 // X and Y axis travel speed (mm/m) between probes
 #define XY_PROBE_SPEED 8000
@@ -1387,7 +1387,7 @@
 // - Move the Z probe (or nozzle) to a defined XY point before Z Homing.
 // - Prevent Z homing when the Z probe is outside bed area.
 //
-//#define Z_SAFE_HOMING
+#define Z_SAFE_HOMING
 
 #if ENABLED(Z_SAFE_HOMING)
   #define Z_SAFE_HOMING_X_POINT X_CENTER  // X point for Z homing

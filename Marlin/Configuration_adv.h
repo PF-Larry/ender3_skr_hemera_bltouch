@@ -2254,7 +2254,7 @@
   #endif
 
   #if AXIS_IS_TMC(Z)
-    #define Z_CURRENT       636
+    #define Z_CURRENT       846 //1.33*.9=.846*1.41
     #define Z_CURRENT_HOME  Z_CURRENT
     #define Z_MICROSTEPS     16
     #define Z_RSENSE          0.11
