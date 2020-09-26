@@ -491,9 +491,9 @@
 
   // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
   // Creality Ender-3
-  #define DEFAULT_Kp 24.52
-  #define DEFAULT_Ki 2.23
-  #define DEFAULT_Kd 67.34
+  #define DEFAULT_Kp 27.09
+  #define DEFAULT_Ki 2.45
+  #define DEFAULT_Kd 77.11
 
 #endif // PIDTEMP
 
@@ -989,8 +989,8 @@
  *     O-- FRONT --+
  */
 //#define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }
-#define NOZZLE_TO_PROBE_OFFSET { 64, 0, -1.0 } //# using https://www.myminifactory.com/object/3d-print-ender-3-compact-hemera-mount-plate-with-bltouch-110476
-//#define NOZZLE_TO_PROBE_OFFSET { +57.552, -10.589, -2.6 } //using https://www.thingiverse.com/thing:4069650
+//#define NOZZLE_TO_PROBE_OFFSET { 64, 0, -1.0 } //# using https://www.myminifactory.com/object/3d-print-ender-3-compact-hemera-mount-plate-with-bltouch-110476
+#define NOZZLE_TO_PROBE_OFFSET { +57.552, -10.589, -2.6 } //using https://www.thingiverse.com/thing:4069650
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
 #define PROBING_MARGIN 40  // increasing to ensure that the probe doesn't collide with a clip.
@@ -1125,12 +1125,12 @@
 // @section machine
 
 // The size of the print bed
-#define X_BED_SIZE 235
-#define Y_BED_SIZE 225
+#define X_BED_SIZE 220
+#define Y_BED_SIZE 207
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#define X_MIN_POS -18
-#define Y_MIN_POS -12
+#define X_MIN_POS 0 //ender 3 pro w/hemera
+#define Y_MIN_POS -27 //ender 3 pro w/hemera
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
@@ -1283,7 +1283,7 @@
 #if EITHER(AUTO_BED_LEVELING_LINEAR, AUTO_BED_LEVELING_BILINEAR)
 
   // Set the number of grid points per dimension.
-  #define GRID_MAX_POINTS_X 5
+  #define GRID_MAX_POINTS_X 4 // changing from 5 to 4 for smaller ender 3 bed
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   // Probe along the Y axis, advancing X after each column
